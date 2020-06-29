@@ -1,0 +1,295 @@
+/*
+ * 15 Channel Arduino Infra Red Remote Controller LED 
+ * Circuit diagram, PCB Layout and Arduino Code available at our website https://www.twovolt.com
+ * 15  CHANNEL INTEX SWITCH SWITCH 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+ * Modified Code from Original ,Code Author Ken Shirriff
+
+ */
+
+#include <IRremote.h>
+
+int RECV_PIN = A1;
+String IRButton1 = "1FE48B7";//SWITCH 1
+String IRButton2 = "1FE58A7";//SWITCH 2
+String IRButton3 = "1FE7887";//SWITCH 3
+String IRButton4 = "1FE807F";//SWITCH 4
+String IRButton5 = "1FE609F";//SWITCH 5
+String IRButton6 = "1FEC03F";//SWITCH 1
+String IRButton7 = "1FE20DF";//SWITCH 2
+String IRButton8 = "1FEA05F";//SWITCH 3
+String IRButton9 = "1FEE01F";//SWITCH 4
+String IRButton10 = "1FE10EF";//SWITCH 5
+String IRButton11 = "1FE906F";//SWITCH 1
+String IRButton12 = "1FE50AF";//SWITCH 2
+String IRButton13 = "1FED827";//SWITCH 3
+String IRButton14 = "1FEF807";//SWITCH 4
+String IRButton15 = "1FE30CF";//SWITCH 5
+const int ledPin1 = 0;// Relay 1
+const int ledPin2 = 1;// Relay 2
+const int ledPin3 = 2;// Relay 3
+const int ledPin4 = 3;// Relay 4
+const int ledPin5 = 4;// Relay 4
+const int ledPin6 = 5;// Relay 1
+const int ledPin7 = 6;// Relay 2
+const int ledPin8 = 7;// Relay 3
+const int ledPin9 = 8;// Relay 4
+const int ledPin10 = 9;// Relay 4
+const int ledPin11 = 10;// Relay 1
+const int ledPin12 = 11;// Relay 2
+const int ledPin13 = 12;// Relay 3
+const int ledPin14 = 13;// Relay 4
+const int ledPin15 = 14;// Relay 4
+
+IRrecv irrecv(RECV_PIN);
+
+decode_results results;
+String BUTTONPRESSED;
+int button1 = 0;
+int button2 = 0;
+int button3 = 0;
+int button4 = 0;
+int button5 = 0;
+int button6 = 0;
+int button7 = 0;
+int button8 = 0;
+int button9 = 0;
+int button10 = 0;
+int button11 = 0;
+int button12 = 0;
+int button13 = 0;
+int button14 = 0;
+int button15 = 0;
+
+void setup()
+{
+ 
+  irrecv.enableIRIn(); // Start the receiver
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(ledPin4, OUTPUT);
+  pinMode(ledPin5, OUTPUT);
+  pinMode(ledPin6, OUTPUT);
+  pinMode(ledPin7, OUTPUT);
+  pinMode(ledPin8, OUTPUT);
+  pinMode(ledPin9, OUTPUT);
+  pinMode(ledPin10, OUTPUT);
+  pinMode(ledPin11, OUTPUT);
+  pinMode(ledPin12, OUTPUT);
+  pinMode(ledPin13, OUTPUT);
+  pinMode(ledPin14, OUTPUT);
+  pinMode(ledPin15, OUTPUT);
+}
+
+void loop() {
+  if (irrecv.decode(&results)) {
+    BUTTONPRESSED = String(results.value, HEX);
+    BUTTONPRESSED.toUpperCase();
+    //delay(1000);
+
+    //button 1
+    if (BUTTONPRESSED == IRButton1) {
+      if (button1 == 0) {
+        button1 = 1;
+      }
+      else
+        button1 = 0;
+      if (button1 == 1) {
+        digitalWrite(ledPin1, HIGH);
+
+      }
+      else
+        digitalWrite(ledPin1, LOW);
+    }
+
+    //button 2
+    if (BUTTONPRESSED == IRButton2) {
+      if (button2 == 0) {
+        button2 = 1;
+      }
+      else
+        button2 = 0;
+      if (button2 == 1) {
+        digitalWrite(ledPin2, HIGH);
+      
+      }
+      else
+        digitalWrite(ledPin2, LOW);
+    }
+
+    //button 3
+    if (BUTTONPRESSED == IRButton3) {
+      if (button3 == 0) {
+        button3 = 1;
+      }
+      else
+        button3 = 0;
+      if (button3 == 1) {
+        digitalWrite(ledPin3, HIGH);
+            }
+      else
+        digitalWrite(ledPin3, LOW);
+    }
+
+    //button 4
+    if (BUTTONPRESSED == IRButton4) {
+      if (button4 == 0) {
+        button4 = 1;
+      }
+      else
+        button4 = 0;
+      if (button4 == 1) {
+        digitalWrite(ledPin4, HIGH);
+             }
+      else
+        digitalWrite(ledPin4, LOW);
+    }
+
+        //button 5
+    if (BUTTONPRESSED == IRButton5) {
+      if (button5 == 0) {
+        button5 = 1;
+      }
+      else
+        button5 = 0;
+      if (button5 == 1) {
+        digitalWrite(ledPin5, HIGH);
+             }
+      else
+        digitalWrite(ledPin5, LOW);
+    }
+        //button 6
+    if (BUTTONPRESSED == IRButton6) {
+      if (button6 == 0) {
+        button6 = 1;
+      }
+      else
+        button6 = 0;
+      if (button6 == 1) {
+        digitalWrite(ledPin6, HIGH);
+             }
+      else
+        digitalWrite(ledPin6, LOW);
+    }
+        //button 7
+    if (BUTTONPRESSED == IRButton7) {
+      if (button7 == 0) {
+        button7 = 1;
+      }
+      else
+        button7 = 0;
+      if (button7 == 1) {
+        digitalWrite(ledPin7, HIGH);
+             }
+      else
+        digitalWrite(ledPin7, LOW);
+    }
+        //button 8
+    if (BUTTONPRESSED == IRButton8) {
+      if (button8 == 0) {
+        button8 = 1;
+      }
+      else
+        button8 = 0;
+      if (button8 == 1) {
+        digitalWrite(ledPin8, HIGH);
+             }
+      else
+        digitalWrite(ledPin8, LOW);
+    }
+        //button 9
+    if (BUTTONPRESSED == IRButton9) {
+      if (button9 == 0) {
+        button9 = 1;
+      }
+      else
+        button9 = 0;
+      if (button9 == 1) {
+        digitalWrite(ledPin9, HIGH);
+             }
+      else
+        digitalWrite(ledPin9, LOW);
+    }
+        //button 10
+    if (BUTTONPRESSED == IRButton10) {
+      if (button10 == 0) {
+        button10 = 1;
+      }
+      else
+        button10 = 0;
+      if (button10 == 1) {
+        digitalWrite(ledPin10, HIGH);
+             }
+      else
+        digitalWrite(ledPin10, LOW);
+    }
+        //button 11
+    if (BUTTONPRESSED == IRButton11) {
+      if (button11 == 0) {
+        button11 = 1;
+      }
+      else
+        button11 = 0;
+      if (button11 == 1) {
+        digitalWrite(ledPin11, HIGH);
+             }
+      else
+        digitalWrite(ledPin11, LOW);
+    }
+        //button 12
+    if (BUTTONPRESSED == IRButton12) {
+      if (button12 == 0) {
+        button12 = 1;
+      }
+      else
+        button12 = 0;
+      if (button12 == 1) {
+        digitalWrite(ledPin12, HIGH);
+             }
+      else
+        digitalWrite(ledPin12, LOW);
+    }
+        //button 13
+    if (BUTTONPRESSED == IRButton13) {
+      if (button13 == 0) {
+        button13 = 1;
+      }
+      else
+        button13 = 0;
+      if (button13 == 1) {
+        digitalWrite(ledPin13, HIGH);
+             }
+      else
+        digitalWrite(ledPin13, LOW);
+    }
+        //button 14
+    if (BUTTONPRESSED == IRButton14) {
+      if (button14 == 0) {
+        button14 = 1;
+      }
+      else
+        button14 = 0;
+      if (button14 == 1) {
+        digitalWrite(ledPin14, HIGH);
+             }
+      else
+        digitalWrite(ledPin14, LOW);
+    }
+        //button 15
+    if (BUTTONPRESSED == IRButton15) {
+      if (button15 == 0) {
+        button15 = 1;
+      }
+      else
+        button15 = 0;
+      if (button15 == 1) {
+        digitalWrite(ledPin15, HIGH);
+             }
+      else
+        digitalWrite(ledPin15, LOW);
+    }
+
+    irrecv.resume(); // Receive the next value
+  }
+
+}\

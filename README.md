@@ -1,0 +1,2 @@
+# 15-Channel-Infra-Red-Remote-Decoder-and-display-on-15-LED-s
+15 Channel Infra Red Remote receive the infra red signal  decode the IR code  and display on 15 LED’s , The project tested with 15 LED’s Arduino compatible board, Its toggle the LED’s connected on Arduino pins.  Use relay board instead of LED’s and its become full fledged 15 channel infra red remote controller which will allow ON/OFF  lights. fans, pumps and other consumer house holds. 
